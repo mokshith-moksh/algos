@@ -3,6 +3,7 @@
 
 int prim(int c[10][10], int n, int s) {
     int v[10], i, j, sum = 0, ver[10], d[10], min, u = -1;
+    //visit madu 
     for (i = 0; i < n; i++) {
         ver[i] = s;
         d[i] = c[s][i];
@@ -38,7 +39,7 @@ int main() {
     printf("\nEnter the graph data (use %d for infinity):\n", INF);
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
-            scanf("%d", &c[i][j]);
+            scanf("%d", &c[i][j]);  
         }
     }
     printf("\nEnter the source node (0 to %d): ", n - 1);

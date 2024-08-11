@@ -4,13 +4,13 @@ void sort(int a[][10], int id[], int n, int temp[], int *k) {
     int i, j;
     for (i = 0; i < n; i++) {
         if (id[i] == 0) {
-            id[i] = -1; // Mark the node as processed
+            id[i] = -1; 
             temp[(*k)++] = i;
             for (j = 0; j < n; j++) {
                 if (a[i][j] == 1 && id[j] != -1)
-                    id[j]--; // Decrease the in-degree
+                    id[j]--;
             }
-            i = -1; // Reset the loop to start from the beginning
+            i = -1; 
         }
     }
 }
@@ -20,7 +20,6 @@ int main() {
     printf("Enter the number of vertices (n value): ");
     scanf("%d", &n);
 
-    // Initialize in-degree array to 0
     for (i = 0; i < n; i++) id[i] = 0;
 
     printf("Enter the adjacency matrix (use 1 for edge, 0 for no edge):\n");
@@ -28,11 +27,10 @@ int main() {
         for (j = 0; j < n; j++) {
             scanf("%d", &a[i][j]);
             if (a[i][j] == 1)
-                id[j]++; // Increment in-degree for each incoming edge
+                id[j]++; 
         }
     }
 
-    // Perform topological sort
     sort(a, id, n, temp, &k);
 
     if (k != n) {

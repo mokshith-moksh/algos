@@ -13,7 +13,6 @@ void selsort(int a[], int n) {
                 pos = i;
             }
         }
-        // Swap the found minimum element with the first element
         temp = a[j];
         a[j] = a[pos];
         a[pos] = temp;
@@ -36,15 +35,13 @@ int main() {
     for (i = 0; i < n; i++) {
         scanf("%d", &a[i]);
     }
-
-    // Get the start time
     clock_gettime(CLOCK_MONOTONIC, &start);
-    // Sort the array
+
     selsort(a, n);
-    // Get the end time
+
     clock_gettime(CLOCK_MONOTONIC, &end);
 
-    // Calculate the time taken in seconds
+
     dura = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
 
     printf("Time taken is: %lf seconds\n", dura);

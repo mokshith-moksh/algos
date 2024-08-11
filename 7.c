@@ -8,13 +8,10 @@ int n, m, i;
 void greedyKnapsack(int n, int w[], int p[], int m) {
     double ratio[MAX];
 
-    // Calculate the ratio of profit to weight for each item
     for (i = 0; i < n; i++) {
         ratio[i] = (double)p[i] / w[i];
-        x[i] = 0;  // Initialize x array to zero
+        x[i] = 0; 
     }
-
-    // Sort items based on the ratio in non-increasing order
     for (i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
             if (ratio[i] < ratio[j]) {
@@ -36,17 +33,15 @@ void greedyKnapsack(int n, int w[], int p[], int m) {
     int currentWeight = 0;
     maxprofit = 0.0;
 
-    // Fill the knapsack with items
     for (i = 0; i < n; i++) {
         if (currentWeight + w[i] <= m) {
-            x[i] = 1.0;  // Item i is fully selected
+            x[i] = 1.0;  
             currentWeight += w[i];
             maxprofit += p[i];
         } else {
-            // Fractional part of item i is selected
             x[i] = (double)(m - currentWeight) / w[i];
             maxprofit += x[i] * p[i];
-            break;  // No more capacity in the knapsack
+            break; 
         }
     }
 

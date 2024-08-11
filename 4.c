@@ -4,17 +4,16 @@
 void dijkstra(int c[10][10], int n, int s, int dist[10]) {
     int v[10], min, u, i, j;
     for (i = 0; i < n; i++) {
-        dist[i] = c[s][i];
         v[i] = 0;
+        dist[i] = c[s][i];
     }
     v[s] = 1;
-    dist[s] = 0;  // Distance from source to itself is always zero
+    dist[s] = 0;
 
-    for (i = 1; i < n; i++) { // Only n-1 iterations needed
+    for (i = 1; i < n; i++) { 
         min = INF;
         u = -1;
 
-        // Find the unvisited vertex with the smallest distance
         for (j = 0; j < n; j++) {
             if (!v[j] && dist[j] < min) {
                 min = dist[j];
@@ -22,11 +21,9 @@ void dijkstra(int c[10][10], int n, int s, int dist[10]) {
             }
         }
 
-        if (u == -1) break; // No more vertices to process
-
+        if (u == -1) break; 
         v[u] = 1;
 
-        // Update the distance array
         for (j = 0; j < n; j++) {
             if (!v[j] && c[u][j] != INF && (dist[u] + c[u][j] < dist[j])) {
                 dist[j] = dist[u] + c[u][j];
