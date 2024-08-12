@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Function to merge two sorted arrays
+
 void merge(int arr[], int left, int mid, int right) {
     int i, j, k;
     int n1 = mid - left + 1;
@@ -52,24 +52,23 @@ void merge(int arr[], int left, int mid, int right) {
     free(R);
 }
 
-// Function to implement Merge Sort
+
 void mergeSort(int arr[], int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
 
-        // Recursively sort the first and second halves
         mergeSort(arr, left, mid);
         mergeSort(arr, mid + 1, right);
 
-        // Merge the sorted halves
+
         merge(arr, left, mid, right);
     }
 }
 
-// Function to generate random integers
+
 void generateRandomArray(int arr[], int n) {
     for (int i = 0; i < n; i++)
-        arr[i] = rand() % 100000; // Generate random integers between 0 and 99999
+        arr[i] = rand() % 100000; 
 }
 
 int main() {
